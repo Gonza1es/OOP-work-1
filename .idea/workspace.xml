@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b2a1a90-8e67-42c3-a7f3-f06219de9905" name="Changes" comment="vol 1">
+    <list default="true" id="0b2a1a90-8e67-42c3-a7f3-f06219de9905" name="Changes" comment="Реализовано нахождение определителя матрицы">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Matrix.java" afterDir="false" />
@@ -65,6 +66,14 @@
       <updated>1676726878601</updated>
       <workItem from="1676726880013" duration="8326000" />
     </task>
+    <task id="LOCAL-00001" summary="Реализовано нахождение определителя матрицы">
+      <created>1676810403679</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1676810403679</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -80,5 +89,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Реализовано нахождение определителя матрицы" />
+    <option name="LAST_COMMIT_MESSAGE" value="Реализовано нахождение определителя матрицы" />
   </component>
 </project>

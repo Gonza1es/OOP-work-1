@@ -14,7 +14,8 @@ public class Application {
                             1 - Ввести значения матрицы\s
                             2 - Найти определитель матрицы\s
                             3 - Сформировать транспонированную матрицу\s
-                            4 - Вывести матрицу в консоль\s
+                            4 - Расчитать ранг матрицы\s
+                            5 - Вывести матрицу в консоль\s
                             0 - Выйти из приложения\s
                             """
             );
@@ -22,8 +23,9 @@ public class Application {
                 switch (choice) {
                     case "1" -> System.out.println("Выбрана 1");
                     case "2" -> matrix.calculateDeterminant();
-                    case "3" -> System.out.println("Выбрана 3");
-                    case "4" -> matrix.printMatrix();
+                    case "3" -> matrix.transpose();
+                    case "4" -> System.out.println();
+                    case "5" -> matrix.printMatrix();
                     case "0" -> System.out.println("До свидания!");
                 }
             }
@@ -35,7 +37,7 @@ public class Application {
         boolean isValid = false;
         do {
             choice = scanner.nextLine();
-            if (List.of("1", "2", "3", "4","0").contains(choice))
+            if (List.of("1", "2", "3", "4", "5", "0").contains(choice))
                 isValid = true;
             else
                 System.out.println("Введите номер из списка:");

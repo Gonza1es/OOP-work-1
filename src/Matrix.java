@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class Matrix {
 
@@ -59,10 +60,29 @@ public class Matrix {
         return minor;
     }
 
+    public void transpose() {
+        Number[][] transposeMatrix = new Number[matrix.length][matrix.length];
+
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                transposeMatrix[j][i] = matrix[i][j];
+            }
+        }
+
+        System.out.println("Транспонированная матрица: ");
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j< size; j++) {
+                System.out.print(transposeMatrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
     public void printMatrix() {
-        for (int i=0; i < size; i++) {
-            for (int j=0; j< size; j++) {
-                System.out.format(matrix[i][j] + " ");
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j< size; j++) {
+                System.out.print(matrix[i][j] + " ");
             }
             System.out.println();
         }
