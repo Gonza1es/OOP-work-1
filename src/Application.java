@@ -21,10 +21,10 @@ public class Application {
             );
             if (validateChoice()) {
                 switch (choice) {
-                    case "1" -> System.out.println("Выбрана 1");
+                    case "1" -> matrix.editMatrix();
                     case "2" -> matrix.calculateDeterminant();
                     case "3" -> matrix.transpose();
-                    case "4" -> System.out.println();
+                    case "4" -> matrix.calculateRank();
                     case "5" -> matrix.printMatrix();
                     case "0" -> System.out.println("До свидания!");
                 }
