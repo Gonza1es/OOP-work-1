@@ -6,7 +6,8 @@ public class Application {
     private String choice;
 
     public void menu() {
-        Matrix matrix = new Matrix(3);
+        Double[][] array = { {2.4, 1.8, 5.2}, {4.7, 8.12, 2.32}, {6.4, 1.6, 2.2}};
+        Matrix matrix = new Matrix(array);
         do {
             System.out.println("""
                             Введите номер операции над матрицей:\s
@@ -20,7 +21,7 @@ public class Application {
             if (validateChoice()) {
                 switch (choice) {
                     case "1" -> System.out.println("Выбрана 1");
-                    case "2" -> System.out.println("Выбрана 2");
+                    case "2" -> matrix.calculateDeterminant();
                     case "3" -> System.out.println("Выбрана 3");
                     case "4" -> matrix.printMatrix();
                     case "0" -> System.out.println("До свидания!");
