@@ -1,26 +1,27 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 public class Matrix {
 
-    private final Number[][] matrix;
-
+    private final TComplex[][] matrix;
     private final int size;
 
 
     public Matrix(Number[][] matrix) {
         this.size = matrix.length;
-        this.matrix = matrix.clone();
+        this.matrix = (TComplex[][]) matrix.clone();
     }
 
     public void calculateDeterminant() {
         System.out.println("Определитель матрицы = " + calculateDeterminant(matrix));
     }
 
-    private Double calculateDeterminant(Number[][] matrix) {
-        Double calcResult = 0.0;
+    private TComplex calculateDeterminant(TComplex[][] matrix) {
+        TComplex calcResult = new TComplex(0, 0);
         if (matrix.length == 2) {
-            calcResult = matrix[0][0].doubleValue() * matrix[1][1].doubleValue() - matrix[1][0].doubleValue() * matrix[0][1].doubleValue();
+            TComplexUtils.multiply(matrix[0][0], matrix[1][1]);
+            calcResult = TComplexUtils.subtract(TComplexUtils.multiply(matrix[0][0], matrix[1][1]),TComplexUtils.multiply(matrix[1][0], matrix[0][1]));
         } else {
             int koeff = 1;
             for (int i = 0; i < matrix.length; i++) {
@@ -29,15 +30,15 @@ public class Matrix {
                 } else {
                     koeff = 1;
                 }
-                calcResult += koeff * matrix[0][i].doubleValue() * calculateDeterminant(getMinor(matrix, 0, i));
+                calcResult = TComplexUtils.sum(calcResult, TComplexUtils.multiply(TComplexUtils.multiplyByNumber(koeff,matrix[0][i]), calculateDeterminant(getMinor(matrix, 0, i))));
             }
         }
         return calcResult;
     }
 
-    private Double[][] getMinor(Number[][] matrix, int row, int column) {
+    private TComplex[][] getMinor(TComplex[][] matrix, int row, int column) {
         int minorLength = matrix.length - 1;
-        Double[][] minor = new Double[minorLength][minorLength];
+        TComplex[][] minor = new TComplex[minorLength][minorLength];
         int dI = 0;
         int dJ = 0;
         for (int i = 0; i <= minorLength; i++) {
@@ -49,7 +50,7 @@ public class Matrix {
                     if (j == column) {
                         dJ = 1;
                     } else {
-                        minor[i - dI][j - dJ] = matrix[i][j].doubleValue();
+                        minor[i - dI][j - dJ] = matrix[i][j];
                     }
                 }
             }
@@ -58,7 +59,7 @@ public class Matrix {
     }
 
     public void transpose() {
-        Number[][] transposeMatrix = new Number[matrix.length][matrix.length];
+        TComplex[][] transposeMatrix = new TComplex[matrix.length][matrix.length];
 
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
@@ -78,22 +79,28 @@ public class Matrix {
 
     public void editMatrix() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите новые значения матрицы: ");
+        System.out.println("Введите новые значения матрицы (Пример - 1+2i): ");
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix.length; j++) {
-                matrix[i][j] = scanner.nextDouble();
+                while(true) {
+                    String complex = scanner.nextLine();
+                    try {
+                        matrix[i][j] = new TComplex(complex);
+                        break;
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
             }
         }
     }
 
     public void calculateRank() {
         double EPS = 1E-9;
-        double[][] currentMatrix = new double[matrix.length][matrix.length];
+        TComplex[][] currentMatrix = new TComplex[matrix.length][matrix.length];
 
         for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix.length; j++) {
-                currentMatrix[i][j] = matrix[i][j].doubleValue();
-            }
+            System.arraycopy(matrix[i], 0, currentMatrix[i], 0, matrix.length);
         }
         int rank = matrix.length;
         List<Boolean> lineUsed = new ArrayList<>();
@@ -103,18 +110,18 @@ public class Matrix {
         }
         for (int i = 0; i < matrix.length; i++) {
             for (j = 0; j < matrix.length; j++)
-                if (!lineUsed.get(j) && Math.abs(currentMatrix[j][i]) > EPS)
+                if (!lineUsed.get(j) && TComplexUtils.abs(currentMatrix[j][i]) > EPS)
                     break;
             if (j == matrix.length)
                 --rank;
             else {
                 lineUsed.set(j, true);
                 for (int p = i + 1; p < matrix.length; ++p)
-                    currentMatrix[j][p] /= currentMatrix[j][i];
+                    currentMatrix[j][p] = TComplexUtils.division(currentMatrix[j][p], currentMatrix[j][i]);
                 for (int k = 0; k < matrix.length; ++k)
-                    if (k != j && Math.abs(currentMatrix[k][i]) > EPS)
+                    if (k != j && TComplexUtils.abs(currentMatrix[k][i]) > EPS)
                         for (int p = i + 1; p < matrix.length; ++p)
-                            currentMatrix[k][p] -= currentMatrix[j][p] * currentMatrix[k][i];
+                            currentMatrix[k][p] = TComplexUtils.division(currentMatrix[k][p],TComplexUtils.multiply(currentMatrix[j][p], currentMatrix[k][i]));
             }
         }
         System.out.println("Ранг матрицы = " + rank);

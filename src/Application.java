@@ -6,7 +6,11 @@ public class Application {
     private String choice;
 
     public void menu() {
-        Double[][] array = { {2.4, 1.8, 5.2}, {4.7, 8.12, 2.32}, {6.4, 1.6, 2.2}};
+        TComplex[][] array = {
+                {new TComplex(2, 1), new TComplex(2.1, 1.3), new TComplex(2, 2.6)},
+                {new TComplex(3, 2), new TComplex(2.2, 1.4), new TComplex(4, 2.8)},
+                {new TComplex(4, 3), new TComplex(2.3, 1.5), new TComplex(2.5, 2.9)}
+        };
         Matrix matrix = new Matrix(array);
         do {
             System.out.println("""

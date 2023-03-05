@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b2a1a90-8e67-42c3-a7f3-f06219de9905" name="Changes" comment="Реализовано нахождение транспонированной матрицы">
+    <list default="true" id="0b2a1a90-8e67-42c3-a7f3-f06219de9905" name="Changes" comment="done">
+      <change afterPath="$PROJECT_DIR$/src/TComplex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TComplexUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Matrix.java" afterDir="false" />
@@ -43,7 +45,10 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor.code.editing&quot;
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;
   }
 }</component>
   <component name="RunManager">
@@ -64,6 +69,9 @@
       <option name="presentableId" value="Default" />
       <updated>1676726878601</updated>
       <workItem from="1676726880013" duration="8326000" />
+      <workItem from="1676819492289" duration="4302000" />
+      <workItem from="1677954145467" duration="3384000" />
+      <workItem from="1678010449706" duration="11081000" />
     </task>
     <task id="LOCAL-00001" summary="Реализовано нахождение определителя матрицы">
       <created>1676810403679</created>
@@ -79,7 +87,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676812398257</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="done">
+      <created>1676818144617</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1676818144617</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -99,6 +114,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Реализовано нахождение определителя матрицы" />
     <MESSAGE value="Реализовано нахождение транспонированной матрицы" />
-    <option name="LAST_COMMIT_MESSAGE" value="Реализовано нахождение транспонированной матрицы" />
+    <MESSAGE value="done" />
+    <option name="LAST_COMMIT_MESSAGE" value="done" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
